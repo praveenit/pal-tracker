@@ -28,10 +28,11 @@ public class EnvController {
         this.memoryLimit = memoryLimit;
         this.cfInstanceIndex = cfInstanceIndex;
         this.cfInstanceAddress = cfInstanceAddress;
+
     }
 
-    @GetMapping("/std")
-    public EnvPojo getEnv() {
+    @GetMapping("/env")
+    public Map<String, String> getEnv() {
         Map<String, String> env = new HashMap<>();
 
         env.put("PORT", port);
@@ -39,59 +40,7 @@ public class EnvController {
         env.put("CF_INSTANCE_INDEX", cfInstanceIndex);
         env.put("CF_INSTANCE_ADDR", cfInstanceAddress);
 
-        return new EnvPojo("8675",
-                "12G",
-                "34",
-                "123.sesame.street");
-    }
-
-    class EnvPojo{
-
-        private String port;
-        private String memoryLimit;
-        private String cfInstanceIndex;
-        private String cfInstanceAddress;
-
-        public EnvPojo(String port,String memoryLimit,String cfInstanceIndex, String cfInstanceAddress)
-        {
-            this.port = port;
-            this.memoryLimit = memoryLimit;
-            this.cfInstanceIndex = cfInstanceIndex;
-            this.cfInstanceAddress = cfInstanceAddress;
-
-        }
-
-        public String getPort() {
-            return port;
-        }
-
-        public void setPort(String port) {
-            this.port = port;
-        }
-
-        public String getMemoryLimit() {
-            return memoryLimit;
-        }
-
-        public void setMemoryLimit(String memoryLimit) {
-            this.memoryLimit = memoryLimit;
-        }
-
-        public String getCfInstanceIndex() {
-            return cfInstanceIndex;
-        }
-
-        public void setCfInstanceIndex(String cfInstanceIndex) {
-            this.cfInstanceIndex = cfInstanceIndex;
-        }
-
-        public String getCfInstanceAddress() {
-            return cfInstanceAddress;
-        }
-
-        public void setCfInstanceAddress(String cfInstanceAddress) {
-            this.cfInstanceAddress = cfInstanceAddress;
-        }
+        return env;
     }
 
 }
