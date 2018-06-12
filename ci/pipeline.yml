@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: {{github-repository}}
-    branch: master
+    branch: Praveen_S
     private_key: {{github-private-key}}
 
 - name: pal-tracker-artifacts
